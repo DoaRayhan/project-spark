@@ -1,8 +1,8 @@
 import { ShoppingBag, Search, Menu, User, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Badge } from "@/components/ui/badge";
 import { useUser, useClerk } from "@clerk/clerk-react";
-import { useNavigate } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,7 +11,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { CartDrawer } from "./CartDrawer";
 
 interface HeaderProps {
   cartCount: number;
@@ -21,7 +20,6 @@ interface HeaderProps {
 export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
   const { user } = useUser();
   const { signOut } = useClerk();
-  const navigate = useNavigate();
   
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -78,17 +76,28 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
                 </div>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={() => navigate('/profile')}>
-                <User className="mr-2 h-4 w-4" />
-                My Profile
-              </DropdownMenuItem>
               <DropdownMenuItem onClick={() => signOut()}>
                 <LogOut className="mr-2 h-4 w-4" />
                 Sign out
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          <CartDrawer />
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            className="relative"
+            onClick={onCartClick}
+          >
+            <ShoppingBag className="h-5 w-5" />
+            {cartCount > 0 && (
+              <Badge 
+                variant="destructive" 
+                className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 flex items-center justify-center text-xs"
+              >
+                {cartCount}
+              </Badge>
+            )}
+          </Button>
         </div>
       </div>
     </header>

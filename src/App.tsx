@@ -4,10 +4,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ClerkProvider, SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
-import Index from "./pages/ShopIndex";
+import Index from "./pages/Index";
 import Auth from "./pages/Auth";
-import ProductDetail from "./pages/ProductDetail";
-import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import { CLERK_PUBLISHABLE_KEY } from "./config/clerk";
 
@@ -28,32 +26,6 @@ const App = () => (
                 <>
                   <SignedIn>
                     <Index />
-                  </SignedIn>
-                  <SignedOut>
-                    <RedirectToSignIn />
-                  </SignedOut>
-                </>
-              }
-            />
-            <Route
-              path="/product/:handle"
-              element={
-                <>
-                  <SignedIn>
-                    <ProductDetail />
-                  </SignedIn>
-                  <SignedOut>
-                    <RedirectToSignIn />
-                  </SignedOut>
-                </>
-              }
-            />
-            <Route
-              path="/profile"
-              element={
-                <>
-                  <SignedIn>
-                    <Profile />
                   </SignedIn>
                   <SignedOut>
                     <RedirectToSignIn />
