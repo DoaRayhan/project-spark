@@ -7,19 +7,18 @@ import { ClerkProvider, SignedIn, SignedOut, RedirectToSignIn } from "@clerk/cle
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import { CLERK_PUBLISHABLE_KEY } from "./config/clerk";
 
 const queryClient = new QueryClient();
 
-const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
-
-if (!clerkPubKey) {
+if (!CLERK_PUBLISHABLE_KEY || CLERK_PUBLISHABLE_KEY === "pk_test_YOUR_KEY_HERE") {
   throw new Error(
-    "Missing Clerk Publishable Key. Please add it in Project Settings → Secrets → VITE_CLERK_PUBLISHABLE_KEY"
+    "Please add your Clerk publishable key in src/config/clerk.ts. Get it from https://dashboard.clerk.com"
   );
 }
 
 const App = () => (
-  <ClerkProvider publishableKey={clerkPubKey}>
+  <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY}>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
