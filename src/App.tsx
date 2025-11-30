@@ -11,12 +11,6 @@ import { CLERK_PUBLISHABLE_KEY } from "./config/clerk";
 
 const queryClient = new QueryClient();
 
-if (!CLERK_PUBLISHABLE_KEY || CLERK_PUBLISHABLE_KEY === "pk_test_YOUR_KEY_HERE") {
-  throw new Error(
-    "Please add your Clerk publishable key in src/config/clerk.ts. Get it from https://dashboard.clerk.com"
-  );
-}
-
 const App = () => (
   <ClerkProvider publishableKey={CLERK_PUBLISHABLE_KEY}>
     <QueryClientProvider client={queryClient}>
