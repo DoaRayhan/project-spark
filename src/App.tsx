@@ -8,9 +8,15 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
+const queryClient = new QueryClient();
+
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
-const queryClient = new QueryClient();
+if (!clerkPubKey) {
+  throw new Error(
+    "Missing Clerk Publishable Key. Please add it in Project Settings → Secrets → VITE_CLERK_PUBLISHABLE_KEY"
+  );
+}
 
 const App = () => (
   <ClerkProvider publishableKey={clerkPubKey}>
