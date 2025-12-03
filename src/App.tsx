@@ -7,6 +7,8 @@ import { ClerkProvider, SignedIn, SignedOut, RedirectToSignIn } from "@clerk/cle
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
+import PaymentSuccess from "./pages/PaymentSuccess";
+import PaymentCanceled from "./pages/PaymentCanceled";
 import { CLERK_PUBLISHABLE_KEY } from "./config/clerk";
 
 const queryClient = new QueryClient();
@@ -20,6 +22,8 @@ const App = () => (
         <BrowserRouter>
           <Routes>
             <Route path="/auth" element={<Auth />} />
+            <Route path="/payment-success" element={<PaymentSuccess />} />
+            <Route path="/payment-canceled" element={<PaymentCanceled />} />
             <Route
               path="/"
               element={

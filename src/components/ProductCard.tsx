@@ -2,14 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Heart } from "lucide-react";
 import { useState } from "react";
-
-export interface Product {
-  id: number;
-  name: string;
-  price: number;
-  image: string;
-  category: string;
-}
+import { Product } from "@/config/products";
 
 interface ProductCardProps {
   product: Product;

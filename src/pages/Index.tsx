@@ -1,37 +1,33 @@
 import { useState } from "react";
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { ProductCard, Product } from "@/components/ProductCard";
+import { ProductCard } from "@/components/ProductCard";
 import { Cart, CartItem } from "@/components/Cart";
 import { Button } from "@/components/ui/button";
-import product1 from "@/assets/product-1.jpg";
-import product2 from "@/assets/product-2.jpg";
-import product3 from "@/assets/product-3.jpg";
-import product4 from "@/assets/product-4.jpg";
-import product5 from "@/assets/product-5.jpg";
-import product6 from "@/assets/product-6.jpg";
-
-const products: Product[] = [
-  { id: 1, name: "Classic Leather Bag", price: 249.99, image: product1, category: "Bags" },
-  { id: 2, name: "Heritage Timepiece", price: 599.99, image: product2, category: "Watches" },
-  { id: 3, name: "Aviator Sunglasses", price: 189.99, image: product3, category: "Eyewear" },
-  { id: 4, name: "Signature Wallet", price: 129.99, image: product4, category: "Accessories" },
-  { id: 5, name: "Premium Leather Belt", price: 89.99, image: product5, category: "Accessories" },
-  { id: 6, name: "Luxury Fragrance", price: 159.99, image: product6, category: "Fragrance" },
-];
+import { products, Product } from "@/config/products";
+import { toast } from "sonner";
 
 const Index = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState<string>("All");
+
+  const categories = ["All", ...Array.from(new Set(products.map(p => p.category)))];
+
+  const filteredProducts = activeCategory === "All" 
+    ? products 
+    : products.filter(p => p.category === activeCategory);
 
   const handleAddToCart = (product: Product) => {
     setCartItems((items) => {
       const existingItem = items.find((item) => item.id === product.id);
       if (existingItem) {
+        toast.success(`Added another ${product.name} to cart`);
         return items.map((item) =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       }
+      toast.success(`${product.name} added to cart`);
       return [...items, { ...product, quantity: 1 }];
     });
   };
@@ -50,6 +46,10 @@ const Index = () => {
     setCartItems((items) => items.filter((item) => item.id !== id));
   };
 
+  const handleClearCart = () => {
+    setCartItems([]);
+  };
+
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
@@ -63,16 +63,22 @@ const Index = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-2">Featured Collection</h2>
             <p className="text-muted-foreground">Handpicked essentials for the modern wardrobe</p>
           </div>
-          <div className="flex gap-2">
-            <Button variant="outline">All</Button>
-            <Button variant="ghost">Bags</Button>
-            <Button variant="ghost">Watches</Button>
-            <Button variant="ghost">Accessories</Button>
+          <div className="flex flex-wrap gap-2">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={activeCategory === category ? "outline" : "ghost"}
+                onClick={() => setActiveCategory(category)}
+                className={activeCategory === category ? "border-accent" : ""}
+              >
+                {category}
+              </Button>
+            ))}
           </div>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <ProductCard 
               key={product.id} 
               product={product} 
@@ -120,6 +126,7 @@ const Index = () => {
         items={cartItems}
         onUpdateQuantity={handleUpdateQuantity}
         onRemove={handleRemoveItem}
+        onClearCart={handleClearCart}
       />
     </div>
   );
