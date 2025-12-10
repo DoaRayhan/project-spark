@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ShoppingCart, Heart } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Product } from "@/config/products";
 
 interface ProductCardProps {
@@ -11,9 +12,27 @@ interface ProductCardProps {
 
 export const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
   const [isLiked, setIsLiked] = useState(false);
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/product/${product.id}`);
+  };
+
+  const handleLikeClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setIsLiked(!isLiked);
+  };
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    onAddToCart(product);
+  };
   
   return (
-    <Card className="group overflow-hidden border-border/40 hover:border-accent/20 transition-all duration-300 hover:shadow-lg">
+    <Card 
+      className="group overflow-hidden border-border/40 hover:border-accent/20 transition-all duration-300 hover:shadow-lg cursor-pointer"
+      onClick={handleCardClick}
+    >
       <div className="relative aspect-square overflow-hidden bg-muted">
         <img 
           src={product.image} 
@@ -21,7 +40,7 @@ export const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         <button 
-          onClick={() => setIsLiked(!isLiked)}
+          onClick={handleLikeClick}
           className="absolute top-4 right-4 p-2 rounded-full bg-background/80 backdrop-blur-sm hover:bg-background transition-colors"
         >
           <Heart 
@@ -32,7 +51,7 @@ export const ProductCard = ({ product, onAddToCart }: ProductCardProps) => {
           <Button 
             className="w-full" 
             size="sm"
-            onClick={() => onAddToCart(product)}
+            onClick={handleAddToCart}
           >
             <ShoppingCart className="mr-2 h-4 w-4" />
             Add to Cart

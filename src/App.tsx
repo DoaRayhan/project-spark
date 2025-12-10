@@ -9,6 +9,7 @@ import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 import PaymentSuccess from "./pages/PaymentSuccess";
 import PaymentCanceled from "./pages/PaymentCanceled";
+import ProductDetail from "./pages/ProductDetail";
 import { CLERK_PUBLISHABLE_KEY } from "./config/clerk";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,19 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route path="/payment-canceled" element={<PaymentCanceled />} />
+            <Route
+              path="/product/:id"
+              element={
+                <>
+                  <SignedIn>
+                    <ProductDetail />
+                  </SignedIn>
+                  <SignedOut>
+                    <RedirectToSignIn />
+                  </SignedOut>
+                </>
+              }
+            />
             <Route
               path="/"
               element={
