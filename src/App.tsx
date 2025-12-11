@@ -38,19 +38,7 @@ const App = () => (
                 </>
               }
             />
-            <Route
-              path="/"
-              element={
-                <>
-                  <SignedIn>
-                    <Index />
-                  </SignedIn>
-                  <SignedOut>
-                    <RedirectToSignIn />
-                  </SignedOut>
-                </>
-              }
-            />
+            <Route path="/" element={<Index />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
