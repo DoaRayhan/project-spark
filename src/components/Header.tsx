@@ -32,7 +32,7 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
           
           <nav className="hidden md:flex items-center gap-6">
             <Link to="/" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">Home</Link>
-            <Link to="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Shop</Link>
+            <Link to="/shop" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Shop</Link>
             <Link to="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">About</Link>
             <Link to="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Blog</Link>
             <Link to="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
@@ -112,7 +112,7 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
             <SheetContent side="left" className="w-64">
               <nav className="flex flex-col gap-4 mt-8">
                 <Link to="/" className="text-lg font-medium hover:text-primary transition-colors">Home</Link>
-                <Link to="#" className="text-lg font-medium hover:text-primary transition-colors">Shop</Link>
+                <Link to="/shop" className="text-lg font-medium hover:text-primary transition-colors">Shop</Link>
                 <Link to="#" className="text-lg font-medium hover:text-primary transition-colors">About</Link>
                 <Link to="#" className="text-lg font-medium hover:text-primary transition-colors">Blog</Link>
                 <Link to="#" className="text-lg font-medium hover:text-primary transition-colors">Contact</Link>
