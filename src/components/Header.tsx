@@ -33,10 +33,22 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
           <nav className="hidden md:flex items-center gap-6">
             <Link to="/" className="text-sm font-medium text-foreground hover:text-muted-foreground transition-colors">Home</Link>
             <Link to="/shop" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Shop</Link>
-            <Link to="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">About</Link>
-            <Link to="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Blog</Link>
-            <Link to="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
-            <Link to="#" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Pages</Link>
+            <Link to="/about" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">About</Link>
+            <Link to="/blog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Blog</Link>
+            <Link to="/contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">Contact</Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1">
+                Pages <span className="text-xs">▼</span>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start">
+                <DropdownMenuItem asChild>
+                  <Link to="/pricing">Pricing</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/team">Team</Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </nav>
         </div>
         
@@ -113,10 +125,11 @@ export const Header = ({ cartCount, onCartClick }: HeaderProps) => {
               <nav className="flex flex-col gap-4 mt-8">
                 <Link to="/" className="text-lg font-medium hover:text-primary transition-colors">Home</Link>
                 <Link to="/shop" className="text-lg font-medium hover:text-primary transition-colors">Shop</Link>
-                <Link to="#" className="text-lg font-medium hover:text-primary transition-colors">About</Link>
-                <Link to="#" className="text-lg font-medium hover:text-primary transition-colors">Blog</Link>
-                <Link to="#" className="text-lg font-medium hover:text-primary transition-colors">Contact</Link>
-                <Link to="#" className="text-lg font-medium hover:text-primary transition-colors">Pages</Link>
+                <Link to="/about" className="text-lg font-medium hover:text-primary transition-colors">About</Link>
+                <Link to="/blog" className="text-lg font-medium hover:text-primary transition-colors">Blog</Link>
+                <Link to="/contact" className="text-lg font-medium hover:text-primary transition-colors">Contact</Link>
+                <Link to="/pricing" className="text-lg font-medium hover:text-primary transition-colors">Pricing</Link>
+                <Link to="/team" className="text-lg font-medium hover:text-primary transition-colors">Team</Link>
               </nav>
             </SheetContent>
           </Sheet>
