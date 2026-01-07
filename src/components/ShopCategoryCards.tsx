@@ -3,32 +3,32 @@ import { Link } from "react-router-dom";
 const categories = [
   {
     name: "CLOTHS",
-    items: 5,
-    image: "https://images.unsplash.com/photo-1509631179647-0177331693ae?w=300&h=200&fit=crop",
+    items: 8,
+    image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=300&h=200&fit=crop",
     bgColor: "bg-primary"
   },
   {
-    name: "CLOTHS",
-    items: 5,
-    image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300&h=200&fit=crop",
+    name: "WATCHES",
+    items: 6,
+    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=300&h=200&fit=crop",
     bgColor: "bg-primary"
   },
   {
-    name: "CLOTHS",
+    name: "EYEWEAR",
     items: 5,
-    image: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=300&h=200&fit=crop",
+    image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=300&h=200&fit=crop",
     bgColor: "bg-transparent"
   },
   {
-    name: "CLOTHS",
-    items: 5,
-    image: "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=300&h=200&fit=crop",
+    name: "ACCESSORIES",
+    items: 12,
+    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=200&fit=crop",
     bgColor: "bg-transparent"
   },
   {
-    name: "CLOTHS",
-    items: 5,
-    image: "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=300&h=200&fit=crop",
+    name: "FRAGRANCE",
+    items: 4,
+    image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=300&h=200&fit=crop",
     bgColor: "bg-primary"
   }
 ];
