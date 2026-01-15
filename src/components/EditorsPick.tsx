@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 const categories = [
   {
     name: "MEN",
-    image: "https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=400&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1617137968427-85924c800a22?w=400&h=500&fit=crop",
     className: "col-span-1 row-span-2"
   },
   {
     name: "WOMEN",
-    image: "https://images.unsplash.com/photo-1485968579169-a6b287892dc8?w=400&h=500&fit=crop",
+    image: "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&h=500&fit=crop",
     className: "col-span-1 row-span-2"
   },
   {
     name: "ACCESSORIES",
-    image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&h=240&fit=crop",
+    image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=300&h=240&fit=crop",
     className: "col-span-1 row-span-1"
   },
   {
