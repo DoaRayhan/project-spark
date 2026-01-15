@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ClerkProvider, SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
+import { ClerkProvider } from "@clerk/clerk-react";
 import Index from "./pages/Index";
 import Shop from "./pages/Shop";
 import Auth from "./pages/Auth";
@@ -31,19 +31,7 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/payment-success" element={<PaymentSuccess />} />
             <Route path="/payment-canceled" element={<PaymentCanceled />} />
-            <Route
-              path="/product/:id"
-              element={
-                <>
-                  <SignedIn>
-                    <ProductDetail />
-                  </SignedIn>
-                  <SignedOut>
-                    <RedirectToSignIn />
-                  </SignedOut>
-                </>
-              }
-            />
+            <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/" element={<Index />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/about" element={<About />} />

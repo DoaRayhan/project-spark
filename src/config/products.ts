@@ -34,7 +34,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=500&fit=crop"],
     category: "Cloths",
-    priceId: "price_leather_jacket",
+    priceId: "price_1SpNd4KviGgWUA8hK0lIAx9Z",
     description: "Premium leather jacket with a timeless design. Perfect for any casual or semi-formal occasion.",
     sizes: ["S", "M", "L", "XL"],
     colors: [
@@ -55,7 +55,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=400&h=500&fit=crop"],
     category: "Cloths",
-    priceId: "price_cashmere_sweater",
+    priceId: "price_1SpNdFKviGgWUA8hFG6St0x2",
     description: "Luxuriously soft cashmere sweater for ultimate comfort and style.",
     sizes: ["S", "M", "L", "XL"],
     colors: [
@@ -74,7 +74,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop"],
     category: "Cloths",
-    priceId: "price_tailored_blazer",
+    priceId: "price_1SpNdPKviGgWUA8hyWNV8DCl",
     description: "Perfectly tailored blazer for a sophisticated look.",
     sizes: ["S", "M", "L", "XL"],
     colors: [
@@ -93,7 +93,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=400&h=500&fit=crop"],
     category: "Cloths",
-    priceId: "price_silk_blouse",
+    priceId: "price_1SpNdYKviGgWUA8h9xv8wxJ6",
     description: "Elegant silk blouse with a flowing silhouette.",
     sizes: ["XS", "S", "M", "L"],
     colors: [
@@ -114,7 +114,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=500&fit=crop"],
     category: "Watches",
-    priceId: "price_heritage_watch",
+    priceId: "price_1SaB0cKviGgWUA8hiCuLXr43",
     description: "A sophisticated automatic movement watch featuring a sapphire crystal face.",
     colors: [
       { name: "Silver", value: "hsl(0, 0%, 75%)" },
@@ -132,7 +132,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=500&fit=crop"],
     category: "Watches",
-    priceId: "price_minimalist_watch",
+    priceId: "price_1SpNdlKviGgWUA8h5iEl3O0u",
     description: "Clean lines and understated elegance define this minimalist timepiece.",
     colors: [
       { name: "Black", value: "hsl(0, 0%, 10%)" },
@@ -150,7 +150,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=400&h=500&fit=crop"],
     category: "Watches",
-    priceId: "price_sport_chrono",
+    priceId: "price_1SpNduKviGgWUA8hrCNSB2HW",
     description: "Professional-grade chronograph for the active lifestyle.",
     colors: [
       { name: "Steel", value: "hsl(0, 0%, 65%)" },
@@ -170,7 +170,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=500&fit=crop"],
     category: "Eyewear",
-    priceId: "price_aviator",
+    priceId: "price_1SaB0xKviGgWUA8h7oOmNinx",
     description: "Iconic aviator frames with polarized lenses offering 100% UV protection.",
     colors: [
       { name: "Gold", value: "hsl(45, 70%, 50%)" },
@@ -188,7 +188,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=400&h=500&fit=crop"],
     category: "Eyewear",
-    priceId: "price_round_frames",
+    priceId: "price_1SpNeCKviGgWUA8hxNDwwVCc",
     description: "Classic round frames for a vintage-inspired look.",
     colors: [
       { name: "Tortoise", value: "hsl(30, 60%, 30%)" },
@@ -206,7 +206,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=400&h=500&fit=crop"],
     category: "Eyewear",
-    priceId: "price_cat_eye",
+    priceId: "price_1SpNeOKviGgWUA8hHEGgkS75",
     description: "Retro cat eye sunglasses with modern lens technology.",
     colors: [
       { name: "Black", value: "hsl(0, 0%, 10%)" },
@@ -226,7 +226,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=500&fit=crop"],
     category: "Accessories",
-    priceId: "price_leather_bag",
+    priceId: "price_1SaB0NKviGgWUA8hu6Q3IMiC",
     description: "Crafted from premium full-grain leather with hand-stitched detailing.",
     colors: [
       { name: "Cognac", value: "hsl(25, 60%, 35%)" },
@@ -244,7 +244,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1627123424574-724758594e93?w=400&h=500&fit=crop"],
     category: "Accessories",
-    priceId: "price_wallet",
+    priceId: "price_1SaB1ZKviGgWUA8h8UgnClih",
     description: "Slim profile bi-fold wallet with RFID blocking technology.",
     colors: [
       { name: "Tan", value: "hsl(30, 45%, 45%)" },
@@ -262,7 +262,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1624222247344-550fb60583dc?w=400&h=500&fit=crop"],
     category: "Accessories",
-    priceId: "price_belt",
+    priceId: "price_1SaB1pKviGgWUA8hjpwRw3fz",
     description: "Full-grain Italian leather belt with a solid brass buckle.",
     sizes: ["S", "M", "L", "XL"],
     colors: [
@@ -281,7 +281,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=400&h=500&fit=crop"],
     category: "Accessories",
-    priceId: "price_silk_scarf",
+    priceId: "price_1SplW2KviGgWUA8hAwlmSeDY",
     description: "Luxurious silk scarf with elegant patterns.",
     colors: [
       { name: "Navy", value: "hsl(220, 50%, 25%)" },
@@ -301,7 +301,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=500&fit=crop"],
     category: "Fragrance",
-    priceId: "price_edp",
+    priceId: "price_1SaB2OKviGgWUA8hYBBha4we",
     description: "An exquisite blend of bergamot, sandalwood, and amber.",
     sizes: ["50ml", "100ml"],
     variants: [
@@ -316,7 +316,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1595425964071-2c1ecb10b52d?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1595425964071-2c1ecb10b52d?w=400&h=500&fit=crop"],
     category: "Fragrance",
-    priceId: "price_cologne",
+    priceId: "price_1SplWMKviGgWUA8hI9FcqaAC",
     description: "Light and refreshing cologne for everyday wear.",
     sizes: ["50ml", "100ml"],
     variants: [
@@ -331,7 +331,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400&h=500&fit=crop"],
     category: "Fragrance",
-    priceId: "price_oud",
+    priceId: "price_1SplWfKviGgWUA8hFhYpsoEt",
     description: "Rich and intense oud fragrance for special occasions.",
     sizes: ["50ml", "100ml"],
     variants: [
@@ -346,7 +346,7 @@ export const products: Product[] = [
     image: "https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=400&h=500&fit=crop",
     images: ["https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=400&h=500&fit=crop"],
     category: "Fragrance",
-    priceId: "price_floral",
+    priceId: "price_1SplWtKviGgWUA8hYVbxZ9Q9",
     description: "Delicate floral notes for a feminine touch.",
     sizes: ["30ml", "50ml"],
     variants: [
