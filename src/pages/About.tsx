@@ -1,21 +1,10 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { useState } from "react";
-import { Cart, CartItem } from "@/components/Cart";
+import { Cart } from "@/components/Cart";
+import { useCart } from "@/contexts/CartContext";
 
 const About = () => {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
-  const handleUpdateQuantity = (id: number, delta: number) => {
-    setCartItems(prev => prev.map(item => 
-      item.id === id ? { ...item, quantity: Math.max(0, item.quantity + delta) } : item
-    ).filter(item => item.quantity > 0));
-  };
-
-  const handleRemoveItem = (id: number) => {
-    setCartItems(prev => prev.filter(item => item.id !== id));
-  };
+  const { cartCount, openCart } = useCart();
 
   const team = [
     { name: "John Smith", role: "CEO & Founder", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop" },
@@ -25,9 +14,8 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header cartCount={cartItems.reduce((sum, item) => sum + item.quantity, 0)} onCartClick={() => setIsCartOpen(true)} />
+      <Header cartCount={cartCount} onCartClick={openCart} />
       
-      {/* Hero Section */}
       <section className="relative bg-muted py-20">
         <div className="container px-4 md:px-6">
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -42,48 +30,28 @@ const About = () => {
               </button>
             </div>
             <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop" 
-                alt="About us" 
-                className="rounded-lg shadow-xl"
-              />
+              <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop" alt="About us" className="rounded-lg shadow-xl" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
       <section className="py-20">
         <div className="container px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <h3 className="text-4xl font-bold text-foreground mb-2">15K</h3>
-              <p className="text-muted-foreground">Happy Customers</p>
-            </div>
-            <div>
-              <h3 className="text-4xl font-bold text-foreground mb-2">150K</h3>
-              <p className="text-muted-foreground">Monthly Visitors</p>
-            </div>
-            <div>
-              <h3 className="text-4xl font-bold text-foreground mb-2">15</h3>
-              <p className="text-muted-foreground">Countries Worldwide</p>
-            </div>
-            <div>
-              <h3 className="text-4xl font-bold text-foreground mb-2">100+</h3>
-              <p className="text-muted-foreground">Top Partners</p>
-            </div>
+            <div><h3 className="text-4xl font-bold text-foreground mb-2">15K</h3><p className="text-muted-foreground">Happy Customers</p></div>
+            <div><h3 className="text-4xl font-bold text-foreground mb-2">150K</h3><p className="text-muted-foreground">Monthly Visitors</p></div>
+            <div><h3 className="text-4xl font-bold text-foreground mb-2">15</h3><p className="text-muted-foreground">Countries Worldwide</p></div>
+            <div><h3 className="text-4xl font-bold text-foreground mb-2">100+</h3><p className="text-muted-foreground">Top Partners</p></div>
           </div>
         </div>
       </section>
 
-      {/* Team Section */}
       <section className="py-20 bg-muted">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">Meet Our Team</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Problems trying to resolve the conflict between the two major realms of Classical physics.
-            </p>
+            <p className="text-muted-foreground max-w-2xl mx-auto">Problems trying to resolve the conflict between the two major realms of Classical physics.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {team.map((member, index) => (
@@ -100,14 +68,7 @@ const About = () => {
       </section>
 
       <Footer />
-      <Cart 
-        isOpen={isCartOpen} 
-        onClose={() => setIsCartOpen(false)} 
-        items={cartItems}
-        onUpdateQuantity={handleUpdateQuantity}
-        onRemove={handleRemoveItem}
-        onClearCart={() => setCartItems([])}
-      />
+      <Cart />
     </div>
   );
 };
