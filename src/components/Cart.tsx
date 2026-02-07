@@ -9,38 +9,26 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { X, Plus, Minus, Loader2 } from "lucide-react";
-import { Product } from "@/config/products";
 import { supabase } from "@/integrations/supabase/client";
 import { useUser } from "@clerk/clerk-react";
 import { toast } from "sonner";
+import { useCart } from "@/contexts/CartContext";
 
-export interface CartItem extends Product {
-  quantity: number;
-}
-
-interface CartProps {
-  isOpen: boolean;
-  onClose: () => void;
-  items: CartItem[];
-  onUpdateQuantity: (id: number, delta: number) => void;
-  onRemove: (id: number) => void;
-  onClearCart: () => void;
-}
-
-export const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemove, onClearCart }: CartProps) => {
+export const Cart = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { user } = useUser();
+  const { cartItems, isCartOpen, closeCart, updateQuantity, removeItem, clearCart } = useCart();
   
-  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const shipping = subtotal > 0 ? 10 : 0;
+  const subtotal = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const shipping = subtotal > 150 ? 0 : subtotal > 0 ? 10 : 0;
   const total = subtotal + shipping;
 
   const handleCheckout = async () => {
-    if (items.length === 0) return;
+    if (cartItems.length === 0) return;
 
     setIsLoading(true);
     try {
-      const checkoutItems = items.map(item => ({
+      const checkoutItems = cartItems.map(item => ({
         priceId: item.priceId,
         quantity: item.quantity,
       }));
@@ -55,7 +43,7 @@ export const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemove, onCle
       if (error) throw error;
 
       if (data?.url) {
-        onClearCart();
+        clearCart();
         window.open(data.url, '_blank');
       } else {
         throw new Error('No checkout URL received');
@@ -69,7 +57,7 @@ export const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemove, onCle
   };
 
   return (
-    <Sheet open={isOpen} onOpenChange={onClose}>
+    <Sheet open={isCartOpen} onOpenChange={closeCart}>
       <SheetContent className="w-full sm:max-w-lg flex flex-col">
         <SheetHeader>
           <SheetTitle className="text-2xl font-bold">Shopping Cart</SheetTitle>
@@ -77,13 +65,13 @@ export const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemove, onCle
         
         <div className="flex flex-col flex-1 mt-6 min-h-0">
           <div className="flex-1 overflow-auto space-y-4 pr-2">
-            {items.length === 0 ? (
+            {cartItems.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full text-center">
                 <p className="text-muted-foreground text-lg">Your cart is empty</p>
                 <p className="text-sm text-muted-foreground mt-2">Add some items to get started</p>
               </div>
             ) : (
-              items.map((item) => (
+              cartItems.map((item) => (
                 <div key={item.id} className="flex gap-4 p-4 border border-border rounded-lg">
                   <img 
                     src={item.image} 
@@ -101,7 +89,7 @@ export const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemove, onCle
                           variant="ghost"
                           size="icon"
                           className="h-8 w-8"
-                          onClick={() => onRemove(item.id)}
+                          onClick={() => removeItem(item.id)}
                         >
                           <X className="h-4 w-4" />
                         </Button>
@@ -113,7 +101,7 @@ export const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemove, onCle
                           variant="ghost"
                           size="icon"
                           className="h-8 w-8"
-                          onClick={() => onUpdateQuantity(item.id, -1)}
+                          onClick={() => updateQuantity(item.id, -1)}
                         >
                           <Minus className="h-3 w-3" />
                         </Button>
@@ -122,7 +110,7 @@ export const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemove, onCle
                           variant="ghost"
                           size="icon"
                           className="h-8 w-8"
-                          onClick={() => onUpdateQuantity(item.id, 1)}
+                          onClick={() => updateQuantity(item.id, 1)}
                         >
                           <Plus className="h-3 w-3" />
                         </Button>
@@ -135,7 +123,7 @@ export const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemove, onCle
             )}
           </div>
           
-          {items.length > 0 && (
+          {cartItems.length > 0 && (
             <div className="flex-shrink-0 pt-4 border-t bg-background">
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
@@ -144,7 +132,7 @@ export const Cart = ({ isOpen, onClose, items, onUpdateQuantity, onRemove, onCle
                 </div>
                 <div className="flex justify-between text-sm">
                   <span className="text-muted-foreground">Shipping</span>
-                  <span className="font-medium">${shipping.toFixed(2)}</span>
+                  <span className="font-medium">{shipping === 0 && subtotal > 0 ? 'Free' : `$${shipping.toFixed(2)}`}</span>
                 </div>
                 <Separator className="my-2" />
                 <div className="flex justify-between text-lg font-bold">
